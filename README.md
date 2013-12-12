@@ -68,7 +68,7 @@ The **do_multi_upload()** method is referenced in the same way as CodeIgniters *
 		
 
 ## get_multi_upload_data() ##
-The extended library also comes with a get_multi_upload_date() method that will return data about each uploaded file as a multi-dimensional array.
+The extended library also comes with a get_multi_upload_data() method that will return data about each uploaded file as a multi-dimensional array.
 
 			//Perform upload.
 			if($this->upload->do_multi_upload("files"){
