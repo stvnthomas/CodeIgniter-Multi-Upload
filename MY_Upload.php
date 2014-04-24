@@ -258,6 +258,9 @@
 			 * @return	mixed
 			 */
 				public function do_multi_upload($field){
+					//Clear multi_upload_data.
+					$this->_multi_upload_data = array();
+					
 					//Is $_FILES[$field] set? If not, no reason to continue.
 					if(!isset($_FILES[$field])){ return false; }
 					
