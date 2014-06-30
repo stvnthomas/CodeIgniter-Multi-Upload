@@ -279,7 +279,7 @@
 					//Every file will have a separate entry in each of the $_FILES associative array elements (name, type, etc).
 					//Loop through $_FILES[$field]["name"] as representative of total number of files. Use count as key in
 					//corresponding elements of the $_FILES[$field] elements.
-					for($i=0; $i<count($_FILES[$field]["name"]); $i++){
+					foreach ($_FILES[$field]["name"] as $i => $v) {
 						//Was the file able to be uploaded? If not, determine the reason why.
 						if(!is_uploaded_file($_FILES[$field]["tmp_name"][$i])){
 							//Determine error number.
