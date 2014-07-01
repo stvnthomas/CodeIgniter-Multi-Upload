@@ -171,25 +171,10 @@
 										return;
 									}
 							}
-					 	}
-						
-						if((bool)@ini_get("safe_mode") === FALSE && function_exists("shell_exec")){
-							$mime = @shell_exec($cmd);
-							if(strlen($mime) > 0){
-								$mime = explode("\n", trim($mime));
-								if(preg_match($regexp, $mime[(count($mime) - 1)], $matches)){
-									$this->file_type = $matches[1];
-									return;
-								}
-							}
-						}
-						
-						if(function_exists("popen")){
-							$proc = @popen($cmd, "r");
-							if(is_resource($proc)){
-								$mime = @fread($proc, 512);
-								@pclose($proc);
-								if($mime !== FALSE){
+							
+							if((bool)@ini_get("safe_mode") === FALSE && function_exists("shell_exec")){
+								$mime = @shell_exec($cmd);
+								if(strlen($mime) > 0){
 									$mime = explode("\n", trim($mime));
 									if(preg_match($regexp, $mime[(count($mime) - 1)], $matches)){
 										$this->file_type = $matches[1];
@@ -197,7 +182,22 @@
 									}
 								}
 							}
-						}
+							
+							if(function_exists("popen")){
+								$proc = @popen($cmd, "r");
+								if(is_resource($proc)){
+									$mime = @fread($proc, 512);
+									@pclose($proc);
+									if($mime !== FALSE){
+										$mime = explode("\n", trim($mime));
+										if(preg_match($regexp, $mime[(count($mime) - 1)], $matches)){
+											$this->file_type = $matches[1];
+											return;
+										}
+									}
+								}
+							}
+					 	}
 						
 						//Fall back to the deprecated mime_content_type(), if available (still better than $_FILES[$field]["type"])
 						if(function_exists("mime_content_type")){
