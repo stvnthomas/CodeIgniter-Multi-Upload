@@ -21,7 +21,7 @@ Multiple upload functionality will fallback to CodeIgniters default **do_upload(
 		));
 		
 		//Perform upload.
-		if($this->upload->do_multi_upload("files"){
+		if($this->upload->do_multi_upload("files")) {
 			//Code to run upon successful upload.
 		}
 		
@@ -44,7 +44,7 @@ The **do_multi_upload()** method is referenced in the same way as CodeIgniters *
 			));
 		
 			//Perform upload.
-			if($this->upload->do_multi_upload("files"){
+			if($this->upload->do_multi_upload("files")) {
 				//Code to run upon successful upload.
 			}
 			
@@ -62,7 +62,7 @@ The **do_multi_upload()** method is referenced in the same way as CodeIgniters *
 			));
 		
 			//Perform upload.
-			if($this->upload->do_multi_upload("files"){
+			if($this->upload->do_multi_upload("files")) {
 				//Code to run upon successful upload.
 			}		
 		
@@ -71,7 +71,7 @@ The **do_multi_upload()** method is referenced in the same way as CodeIgniters *
 The extended library also comes with a get_multi_upload_data() method that will return data about each uploaded file as a multi-dimensional array.
 
 			//Perform upload.
-			if($this->upload->do_multi_upload("files"){
+			if($this->upload->do_multi_upload("files")) {
 				//Print data for all uploaded files.
 				print_r($this->upload->get_multi_upload_data());
 			}
